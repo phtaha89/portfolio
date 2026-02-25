@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Yasmine E. Shaaban, MD — Clinical Hematology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1a2b;
+    --crimson: #8b1a1a;
+    --gold: #b5893a;
+    --cream: #f8f4ee;
+    --pale: #f0ebe1;
+    --mist: #dbd3c5;
+    --fog: #c4bdb1;
+    --ghost: #e8e2d8;
+    --white: #fffdf9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(14,26,43,0.96);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    border-bottom: 1px solid rgba(181,137,58,0.3);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(139,26,26,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 80%, rgba(181,137,58,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 36px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  h1 em {
+    display: block;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .hero-title-suffix {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    margin-top: 6px;
+  }
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .hero-stats {
+    display: flex; gap: 40px;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+  .hero-right {
+    display: flex; align-items: center; justify-content: center;
+    padding: 100px 60px 80px 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-card {
+    border: 1px solid rgba(181,137,58,0.25);
+    padding: 40px;
+    max-width: 380px;
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(4px);
+  }
+  .hero-card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(181,137,58,0.2);
+  }
+  .info-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .info-val {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+    text-align: right;
+    max-width: 200px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 90px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 60px;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mist);
+  }
+
+  /* ─── TIMELINE (Education & Career) ─── */
+  .bg-pale { background: var(--pale); }
+  .bg-white { background: var(--white); }
+
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 160px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--mist);
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 40px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 155px; top: 6px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    z-index: 1;
+  }
+  .bg-pale .tl-item::before { border-color: var(--pale); }
+  .bg-white .tl-item::before { border-color: var(--white); }
+  .tl-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--fog);
+    letter-spacing: 0.05em;
+    padding-top: 4px;
+    text-align: right;
+    padding-right: 20px;
+  }
+  .tl-body { padding-bottom: 8px; }
+  .tl-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .tl-org {
+    font-size: 0.82rem;
+    color: var(--crimson);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #5a6070;
+  }
+
+  /* ─── PUBLICATIONS ─── */
+  .pub-tabs {
+    display: flex; gap: 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--mist);
+  }
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 24px;
+    color: var(--fog);
+    position: relative;
+    transition: color 0.2s;
+  }
+  .tab-btn.active { color: var(--ink); }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .pub-list { display: flex; flex-direction: column; gap: 20px; }
+  .pub-card {
+    border: 1px solid var(--ghost);
+    background: var(--white);
+    padding: 24px 28px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .pub-card:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+  .pub-card a { text-decoration: none; display: block; }
+  .pub-type-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    background: rgba(139,26,26,0.07);
+    padding: 3px 8px;
+    margin-bottom: 10px;
+  }
+  .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .pub-card a:hover .pub-title { color: var(--crimson); }
+  .pub-meta {
+    font-size: 0.8rem;
+    color: var(--fog);
+    font-weight: 400;
+  }
+  .pub-link-icon {
+    position: absolute; right: 24px; top: 24px;
+    font-size: 1rem;
+    color: var(--mist);
+    transition: color 0.2s;
+  }
+  .pub-card:hover .pub-link-icon { color: var(--gold); }
+
+  /* ─── CONFERENCES GRID ─── */
+  .conf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .conf-card {
+    background: var(--white);
+    border: 1px solid var(--ghost);
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .conf-card:hover { border-color: var(--gold); }
+  .conf-society {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--crimson);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .conf-event {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .conf-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--fog);
+    margin-top: 10px;
+  }
+
+  /* ─── SKILLS & TRAINING ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .skill-block {
+    background: var(--white);
+    padding: 32px 28px;
+    border: 1px solid var(--ghost);
+  }
+  .skill-icon {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+  }
+  .skill-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .skill-items {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .skill-items li {
+    font-size: 0.82rem;
+    color: #5a6070;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .skill-items li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .footer-inst {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-contact {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-align: right;
+    line-height: 2;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 100px 40px 60px; }
+    .container { padding: 0 32px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 0; }
+    .tl-item { grid-template-columns: 1fr; }
+    .tl-year { text-align: left; padding: 0; margin-bottom: 6px; }
+    .tl-item::before { display: none; }
+    footer { grid-template-columns: 1fr; }
+    .footer-contact { text-align: left; }
+    nav { padding: 0 24px; }
+    .nav-links { gap: 16px; }
+    .nav-links a:nth-child(n+4) { display: none; }
+  }
+
+  /* ─── FADE IN ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-card {
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Dr. Y. E. Shaaban, MD</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#career">Career</a>
+    <a href="#publications">Publications</a>
+    <a href="#conferences">Conferences</a>
+    <a href="#teaching">Teaching</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Clinical Hematology · OCMU · Egypt</div>
+    <h1>Yasmine <em>Shaaban</em></h1>
+    <div class="hero-title-suffix">MD — LECTURER &amp; CONSULTANT</div>
+    <p class="hero-bio">
+      Dedicated Clinical Hematologist and academician with over 13 years of experience in tertiary care and medical education at the Oncology Center, Mansoura University. Expert in Bone Marrow Transplantation, Hematological Malignancies, and Thromboembolic Complications. Proven leader in curriculum development and postgraduate training.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">13+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Original Articles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">19+</div>
+        <div class="stat-label">Abstracts</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-title">Professional Details</div>
+      <div class="info-row">
+        <span class="info-key">Institution</span>
+        <span class="info-val">Oncology Center, Mansoura University</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Unit</span>
+        <span class="info-val">Clinical Hematology / Internal Medicine</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Position</span>
+        <span class="info-val">Lecturer &amp; Consultant, Clinical Hematology</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Syndicate</span>
+        <span class="info-val">Consultant, Egyptian Medical Syndicate (2019)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">MSc Coord.</span>
+        <span class="info-val">MSc Hematology Program (since 2022)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Society</span>
+        <span class="info-val">Member, SOHO</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">Email</span>
+        <span class="info-val">essam_yasmine@yahoo.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="bg-pale">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2019</div>
+        <div class="tl-body">
+          <div class="tl-role">MD in Clinical Hematology</div>
+          <div class="tl-org">Faculty of Medicine, Mansoura University, Egypt</div>
+          <div class="tl-desc">Credit Hours programme. Elective course: Stem Cell Transplantation. Recognised as Consultant of Medical Hematology by the Egyptian Medical Syndicate.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015</div>
+        <div class="tl-body">
+          <div class="tl-role">MSc in Clinical Hematology</div>
+          <div class="tl-org">Faculty of Medicine, Mansoura University, Egypt</div>
+          <div class="tl-desc">Credit Hours programme. Elective course: Stem Cell Transplantation. Designated Specialist of Medical Hematology by the Egyptian Medical Syndicate.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2010</div>
+        <div class="tl-body">
+          <div class="tl-role">M.B., B.Ch. — Bachelor of Medicine &amp; Surgery</div>
+          <div class="tl-org">Faculty of Medicine, Mansoura University, Egypt</div>
+          <div class="tl-desc">Graduated with Excellent with Honors distinction.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Career History</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2019 – Present</div>
+        <div class="tl-body">
+          <div class="tl-role">Lecturer of Clinical Hematology</div>
+          <div class="tl-org">OCMU, Hematology Unit / Internal Medicine Dept., Mansoura University</div>
+          <div class="tl-desc">Teaching undergraduate and postgraduate hematology programmes; MSc Hematology Coordinator since 2022; supervising postgraduate trainees; clinical management of benign/malignant hematological diseases and HSCT.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015 – 2019</div>
+        <div class="tl-body">
+          <div class="tl-role">Assistant Lecturer of Clinical Hematology</div>
+          <div class="tl-org">OCMU, Mansoura University</div>
+          <div class="tl-desc">Continued clinical and teaching responsibilities in the Hematology Unit.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2014 – 2015</div>
+        <div class="tl-body">
+          <div class="tl-role">Demonstrator of Clinical Hematology</div>
+          <div class="tl-org">OCMU, Mansoura University</div>
+          <div class="tl-desc">Academic demonstrator duties alongside clinical responsibilities.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2011 – 2014</div>
+        <div class="tl-body">
+          <div class="tl-role">Resident of Clinical Hematology</div>
+          <div class="tl-org">OCMU, Mansoura University</div>
+          <div class="tl-desc">Residency training in clinical hematology at a major Egyptian oncology centre.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2010 – 2011</div>
+        <div class="tl-body">
+          <div class="tl-role">Rotating Intern</div>
+          <div class="tl-org">Mansoura University Hospitals</div>
+          <div class="tl-desc">Internal fellowship rotations. Registered as General Medical Practitioner with the Ministry of Health, Egypt (March 2011).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="bg-pale">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Research &amp; Publications</h2>
+    </div>
+
+    <div class="pub-tabs">
+      <button class="tab-btn active" onclick="switchTab(event,'orig')">Original Articles</button>
+      <button class="tab-btn" onclick="switchTab(event,'rev')">Review Articles</button>
+      <button class="tab-btn" onclick="switchTab(event,'case')">Case Reports</button>
+      <button class="tab-btn" onclick="switchTab(event,'abs')">Abstracts &amp; Posters</button>
+    </div>
+
+    <!-- ORIGINAL ARTICLES -->
+    <div class="tab-panel active" id="orig">
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <a href="https://link.springer.com/article/10.1007/s00277-024-05861-2" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2024</div>
+            <div class="pub-title">Highlights of Ophthalmological Manifestations in Newly Diagnosed Acute Leukemia: A Correlation with Hematological Parameters</div>
+            <div class="pub-meta">Laimon DN, Sakr DH, Atef B, <strong>Shaaban Y</strong>. · <em>Annals of Hematology</em>, 2024; 103:3519–3533</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/publication/363728093" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2023</div>
+            <div class="pub-title">How to Adjust Therapy for Elderly AML Patients in Developing Countries?</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Alghandour R, Hamed M, Atef M, Elbogdady M, Ebrahim MA, Sakr DH. · <em>Egyptian Journal of Haematology</em>, 2023; 48(4):345–352</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://journals.viamedica.pl/acta_haematologica_polonica/article/view/74415" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2021</div>
+            <div class="pub-title">Neurological Presentation Predicting Immune Thrombotic Thrombocytopenic Purpura Outcome</div>
+            <div class="pub-meta">El-Ashwah S, Jamal E, Shemies RS, Mortada MI, Ghannam MA, <strong>Shaaban Y</strong>. · <em>Acta Haematologica Polonica</em>, 2021; 52(1):48–53</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8046308/" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2020</div>
+            <div class="pub-title">Implications of Glutathione Peroxidase 3 Expression in a Cohort of Egyptian Patients with Acute Myeloid Leukemia</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Aref S, Taalab M, Ayed M, Mabed M. · <em>Asian Pacific Journal of Cancer Prevention</em>, 2020; 21(12):3567–3572</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2024</div>
+            <div class="pub-title">The Relation Between Hepatitis C Viral Infection and Follicular Lymphoma Clinical Course and Outcome – Single-Centre Study</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, El-Ashwah S, Ghoneem EA, Eladel A, Mohsen A. · <em>The Egyptian Journal of Haematology</em>, 2024; 49(1):58–67</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2024</div>
+            <div class="pub-title">Evaluation of Hepatic Toxicity in Autoimmune Hemolytic Anemia (AIHA) and Evans Syndrome Patients: A Single-Centre Egyptian Study</div>
+            <div class="pub-meta">Abozeid F, <strong>Shaaban Y</strong>, Elbogdady M, Jamal E. · <em>The Egyptian Journal of Internal Medicine</em>, 2024; 36(1):22</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2024</div>
+            <div class="pub-title">The Effect of Elevated Serum Lactate Dehydrogenase Level on Survival of Newly Diagnosed Acute Myeloid Leukemia (AML) Patients</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Taalab MM. · <em>Egyptian Journal of Hospital Medicine</em>, 2024; 95</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Original Article · 2023</div>
+            <div class="pub-title">Prognostic Impact of Pretreatment Serum Lactate Dehydrogenase Levels in Adult Patients with Acute Myeloid Leukemia: Single Centre Experience</div>
+            <div class="pub-meta">Taalab MM, <strong>Shaaban YE</strong>. · <em>Benha Medical Journal</em>, 2023; 40(3):684–692</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- REVIEW ARTICLES -->
+    <div class="tab-panel" id="rev">
+      <div class="pub-list">
+        <div class="pub-card">
+          <a href="https://link.springer.com/article/10.1007/s00277-023-05241-2" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Review Article · 2023</div>
+            <div class="pub-title">Philadelphia-like Acute Lymphoblastic Leukemia: The Journey from Molecular Background to the Role of Bone Marrow Transplant</div>
+            <div class="pub-meta">Alghandour R, Sakr DH, <strong>Shaaban Y</strong>. · <em>Annals of Hematology</em>, 2023; 102:1287–1300 · DOI: 10.1007/s00277-023-05241-2</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE REPORTS -->
+    <div class="tab-panel" id="case">
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Case Report · 2024</div>
+            <div class="pub-title">No PL in APL: No Perception of Light in Acute Promyelocytic Leukemia</div>
+            <div class="pub-meta">Laimon DN, Gad M, Atef B, Sakr DH, Badawy N, Ibrahim R, Bayomi NM, <strong>Shaaban Y</strong>. · <em>Research in Oncology</em>, 2024</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Case Report · 2023</div>
+            <div class="pub-title">Multicentric vs. Unresectable Unicentric Castleman Disease with Active Presentation: An Orphan Rare Disease in a Young Egyptian Female Patient</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, El-Ashwah S, Elshamy A, et al. · <em>Research in Oncology</em>, 2023; 19(1):13–19</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/32300431/" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Case Report · 2018</div>
+            <div class="pub-title">Hypercalcemia With Disseminated Osteolytic Lesions: A Rare Presentation of Adulthood Acute Lymphoblastic Leukemia</div>
+            <div class="pub-meta">El-Ashwah S, Eisa N, Denewer M, <strong>Essam Y</strong>, Atef B, El-Badrawy A, Mabed M. · <em>Journal of Hematology</em>, 2018; 7(4):154–157. PMID: 32300431</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Case Report · 2017</div>
+            <div class="pub-title">Spontaneous Remission in Acute Lymphoblastic Leukemia: A Case Report and Review of the Literature</div>
+            <div class="pub-meta">Eisa N, El-Ashwah S, Denewer M, <strong>Essam Y</strong>, Atef B. · <em>Hematology &amp; Transfusion International Journal</em>, 2017; 4(4):100–101</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Case Report · 2016</div>
+            <div class="pub-title">Autoimmune Hemolytic Anemia in a Patient with Acute Myelomonocytic Leukemia</div>
+            <div class="pub-meta">Essa N, El-Ashwah S, Denewer M, <strong>Essam Y</strong>, Mabed M. · <em>Journal of Blood Disorders &amp; Transfusion</em>, 2016; 7(336)</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABSTRACTS -->
+    <div class="tab-panel" id="abs">
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · SOHO 2023</div>
+            <div class="pub-title">AML-002: The Effect of Elevated Serum Lactate Dehydrogenase Level on Survival of Newly Diagnosed AML Patients</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Taalab MM. · <em>Clinical Lymphoma Myeloma and Leukemia</em>, 2023; 23:S259</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · SOHO 2023</div>
+            <div class="pub-title">ALL-578: Philadelphia Chromosome Positive Precursor T Acute Lymphoblastic Leukemia — Although Rare, They Do Exist</div>
+            <div class="pub-meta">Atef B, <strong>Shaaban Y</strong>, Elbogdady M, et al. · <em>Clinical Lymphoma Myeloma and Leukemia</em>, 2023; 23:S255</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · EHA 2023</div>
+            <div class="pub-title">PB1750: Philadelphia Chromosome Positive ALL Egyptian Patients — Clinical Profile &amp; Outcome. A Single Centre Experience</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Elbogdady M, Atef B, El-Ashwah S. · <em>HemaSphere</em>, 2023; 7(S3):e59025b4</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · SOHO 2022</div>
+            <div class="pub-title">CML-006: CML Blastic Crisis Diagnosis Based on a Lymph Node Biopsy in an Egyptian Male Patient: A Rare Case Report</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Jamal E, Elbogdady M, Elsayed AE, Abdelsalam RA, Atef B. · <em>Clinical Lymphoma Myeloma and Leukemia</em>, 2022; 22:S283–S284</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · SOHO 2022</div>
+            <div class="pub-title">ALL-004: Philadelphia Chromosome-Positive T-Cell Acute Lymphoblastic Leukemia/Lymphoblastic Lymphoma: A Rare Case Report</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Jamal E, Atef B. · <em>Clinical Lymphoma Myeloma and Leukemia</em>, 2022; 22:S189</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · ASH 2022</div>
+            <div class="pub-title">Refractory Non-Hodgkin Lymphoma in Beta-Thalassemia Trait Egyptian Female Patient: A Case Report</div>
+            <div class="pub-meta">Yasmeen S, Mohamed E, Manal A, Basma A. · <em>American Journal of Hematology</em>, 2022; 97:S27–S28</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · SOHO 2020</div>
+            <div class="pub-title">AML-029: The Prognostic Significance of Serum Lactate Dehydrogenase Level in Egyptian AML Patients</div>
+            <div class="pub-meta"><strong>Shaaban Y</strong>, Taalab MM, Aref S, Mabed M. · <em>Clinical Lymphoma Myeloma and Leukemia</em>, 2020; 20:S174</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · BSH 2021</div>
+            <div class="pub-title">Epidemiological Characters of Adult Egyptian Auto Immune Haemolytic Anaemia Patients: A Single Centre Experience</div>
+            <div class="pub-meta">Essam Y, Elbogdady M, Jamal E. · <em>British Journal of Haematology</em>, 2021; 193:205</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://www.researchgate.net/profile/Yasmine-Shaaban" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · BSH 2021</div>
+            <div class="pub-title">Epidemiological Characters of Adult Egyptian Sickle Cell Anaemia Patients: A Single Centre Experience</div>
+            <div class="pub-meta">Elbogdady M, <strong>Essam Y</strong>. · <em>British Journal of Haematology</em>, 2021; 193:204–205</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="pub-card">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/35695516/" target="_blank" rel="noopener">
+            <div class="pub-type-badge">Abstract · EHA 2022</div>
+            <div class="pub-title">PB2320: An Indication of Treating Adult Haemophilia in a Developing Country — Retrospective Analysis, Single Centre (Part I Descriptive Epidemiology)</div>
+            <div class="pub-meta">Elbogdady M, Shamaa S, Nasr M, … <strong>Essam Y</strong>, et al. · <em>HemaSphere</em>, 2022; 6:2189–2190</div>
+            <div class="pub-link-icon">↗</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section id="conferences" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Conferences &amp; Scientific Meetings</h2>
+    </div>
+    <div class="conf-grid">
+
+      <div class="conf-card">
+        <div class="conf-society">EHA — European Hematology Association</div>
+        <div class="conf-event">29th Hybrid Congress (Travel Grant Recipient), Madrid, Spain; Virtual Congress; ESH-EHA "How to Diagnose &amp; Treat Acute Leukaemia"; HOPE MENA highlights</div>
+        <div class="conf-year">2018 – 2024</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">SOHO — Society of Hematologic Oncology</div>
+        <div class="conf-event">Annual Meeting 2023; Tenth Annual Meeting 2022 (Poster Presenter); SOHO Highlights State of Art &amp; Next Questions; Virtual Annual Meetings</div>
+        <div class="conf-year">2019 – 2023</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">ASH — American Society of Hematology</div>
+        <div class="conf-event">62nd Annual Meeting and Exposition (Virtual/On-Demand)</div>
+        <div class="conf-year">2020</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">BSH — British Society of Haematology</div>
+        <div class="conf-event">64th Annual Scientific Meeting, ACC Liverpool, UK; Virtual Annual Scientific Meeting</div>
+        <div class="conf-year">2021, 2024</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">EBMT — European Society for Blood and Marrow Transplantation</div>
+        <div class="conf-event">46th Annual Meeting (Virtual); Autoimmune Diseases Working Party Educational Event (Virtual)</div>
+        <div class="conf-year">2020</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">ESH — European School of Hematology</div>
+        <div class="conf-event">"How to Diagnose and Treat Acute Leukemias"; 8th Translational Research Conference on MDS (France); Translational Research on ALL &amp; Erythropoiesis conferences</div>
+        <div class="conf-year">2021 – 2022</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">COMy — World Congress on Controversies in Multiple Myeloma</div>
+        <div class="conf-event">8th World Congress (Hybrid, Paris); Annual World Congresses</div>
+        <div class="conf-year">2020 – 2022</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">ISTH — International Society on Thrombosis and Haemostasis</div>
+        <div class="conf-event">ISTH 2020 Congress (Virtual)</div>
+        <div class="conf-year">2020</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">EHOG — Egyptian Hemato-Oncology Group</div>
+        <div class="conf-event">Joint meetings with Egyptian Society of Hematology-Oncology &amp; Bone Marrow Transplantation in collaboration with EHOG; Annual Meetings</div>
+        <div class="conf-year">2015 – 2021</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">International Alexandria Hematology Conference</div>
+        <div class="conf-event">Annual participation including updates on haplo-identical HSCT, drugs in the transplant setting, and other advances</div>
+        <div class="conf-year">2016 – 2022</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">OCMU — Oncology Center Mansoura University</div>
+        <div class="conf-event">International Conference of OCMU — annual participation</div>
+        <div class="conf-year">2016 – 2019</div>
+      </div>
+
+      <div class="conf-card">
+        <div class="conf-society">EUSTM &amp; Other Specialty Congresses</div>
+        <div class="conf-event">9th Annual Virtual Congress on Immunotherapeutics; CAR-T referral education; Personalized medicine in AML; MRD-guided therapy in ALL</div>
+        <div class="conf-year">2022</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING & TRAINING -->
+<section id="teaching" class="bg-pale">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Teaching, Training &amp; Skills</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-block">
+        <div class="skill-icon">🎓</div>
+        <div class="skill-title">Undergraduate Teaching</div>
+        <ul class="skill-items">
+          <li>Hematology course, 5th year medical students — lectures, clinical training, OSCE &amp; written exams (since 2019)</li>
+          <li>Mansoura–Manchester Programme — lectures, data interpretations, seminars, themed case discussions (TCD), clinical training, OSCE, Vivas (since 2019)</li>
+          <li>Final year elective hematology supervision</li>
+        </ul>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-icon">🔬</div>
+        <div class="skill-title">Postgraduate &amp; Specialist Training</div>
+        <ul class="skill-items">
+          <li>MSc, MD, Arabic Board, and Egyptian Hematology Fellowship teaching</li>
+          <li>MSc Hematology Coordinator (new degree, est. 2022) — course specifications, EPAS, milestones, teaching schedules, QBank, exam blueprints</li>
+          <li>BMT educational lectures: Thromboembolic Complications (OCMU, 2020); VTE in BMT (Hematology Weekly Educational Meeting, 2021)</li>
+        </ul>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-icon">🏥</div>
+        <div class="skill-title">Clinical Expertise</div>
+        <ul class="skill-items">
+          <li>Bone Marrow Transplantation (BMT / HSCT)</li>
+          <li>Hematological Malignancies (AML, ALL, CML, lymphomas, myeloma)</li>
+          <li>Benign hematological diseases (AIHA, ITP, TTP, SCD, haemophilia)</li>
+          <li>Thromboembolic complications</li>
+          <li>Clinical training, El-Mowasah Hospital, Alexandria University BMT Unit (March–May 2019)</li>
+        </ul>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-icon">📚</div>
+        <div class="skill-title">Professional Development Courses</div>
+        <ul class="skill-items">
+          <li>University Administration &amp; Anti-Corruption Frameworks (2024)</li>
+          <li>International Academic Publishing in the Human Sciences (2024)</li>
+          <li>Designing and Producing Electronic Courses (2023)</li>
+          <li>Organizing Scientific Meetings (2022)</li>
+          <li>Mansoura–Manchester Educational Training Programme (2022)</li>
+          <li>Personal Website Design for Educational Staff (2021)</li>
+        </ul>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-icon">🏛️</div>
+        <div class="skill-title">Workshops &amp; Certifications</div>
+        <ul class="skill-items">
+          <li>EBMT Lymphoma Working Party Educational Course, Warsaw (Nov 2023)</li>
+          <li>19th International Ultmann Chicago Lymphoma Symposium (2022)</li>
+          <li>SOHO Highlights: State of the Art &amp; Next Questions (Oct 2021)</li>
+          <li>EHA Unplugged: Hematological Diseases &amp; HSCT (Apr 2021)</li>
+          <li>OCMU Bone Marrow Transplantation Workshop (BMT/CME Certified, Oct 2019)</li>
+          <li>1st Online Master Class in Transplantation and Hematology — IACH/EHA (Jun 2020)</li>
+          <li>Janssen Hematology Academy Educational Meetings (AACME Accredited, 2016–2017)</li>
+        </ul>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-title">Memberships &amp; Registrations</div>
+        <ul class="skill-items">
+          <li>Member — Society of Hematologic Oncology (SOHO)</li>
+          <li>Consultant of Medical Hematology — Egyptian Medical Syndicate (2019)</li>
+          <li>Specialist of Medical Hematology — Egyptian Medical Syndicate (2015)</li>
+          <li>General Medical Practitioner — Ministry of Health, Egypt (2011)</li>
+          <li>Regular participant: ASH, EHA, BSH, EBMT, SOHO, EHOG</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Dr. Yasmine E. Shaaban, MD</div>
+    <div class="footer-inst">Lecturer &amp; Consultant · Clinical Hematology · Oncology Center Mansoura University · P.O. Box 35516, Mansoura, Egypt</div>
+  </div>
+  <div class="footer-contact">
+    essam_yasmine@yahoo.com<br>
+    ORCID: 0000-0002-0523-7652<br>
+    ResearchGate: Yasmine-Shaaban
+  </div>
+</footer>
+
+<script>
+  function switchTab(e, panelId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
